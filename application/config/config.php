@@ -23,7 +23,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = '';
+if(getenv('base_url') !== false) {
+    $config['base_url'] = getenv('base_url');
+} else {
+    $config['base_url'] = 'http://localhost/ianime/';
+}
 
 /*
 |--------------------------------------------------------------------------
