@@ -87,22 +87,7 @@ class CI_Controller {
         $this->load->initialize();
         log_message('info', 'Controller Class Initialized');
         //Connection redbean
-        R::setup('pgsql:host=ec2-35-171-31-33.compute-1.amazonaws.com;dbname=dc98cfascbki6p', 'mxhxugrovwdpya', '06f3b4d30b3e19f4dbdf3cbf0b9bd52d6812d0438fed64216d46d8618c5854e0');
-    }
-
-    public function indexview($data = null) {
-        $data['pages'] = [
-            0 => array(0 => 'Financeiro',
-                'subpages' => array(0 => array('name' => 'Contas a pagar', 'urlName' => 'contasapagar'),
-                    1 => array('name' => 'Contas a receber', 'urlName' => 'contasareceber'))
-            )
-        ];
-        $this->load->helper('html');
-        
-        $data['controllerName'] = $this->router->fetch_class();
-        $this->load->view('home/home', $data);
-        $this->load->view($data['controllerName'] . '/' . $data['controllerName'], $data);
-        $this->load->view('home/footer', $data);
+        R::setup('pgsql:host=ruby.db.elephantsql.com;dbname=aivlsjga', 'aivlsjga', 'UpcYo9WAHhSSfmfoZhube0icZb1HiRRg');
     }
 
     // --------------------------------------------------------------------

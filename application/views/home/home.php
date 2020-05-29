@@ -1,99 +1,140 @@
-<!-- CSS only -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
-<!-- JS, Popper.js, and jQuery -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<?php 
+/*var_dump($series);
+die;*/?>
 
 <style>
-    body {
-        background: rgb(154, 154, 154);
-        background: linear-gradient(90deg, rgba(154, 154, 154, 1) 0%, rgba(236, 236, 236, 1) 38%, rgba(236, 236, 236, 1) 64%, rgba(154, 154, 154, 1) 100%);
-        font-size: 12pt;
+    .very-rare {
+        background: #073763;
+        color: #3d85c6;
     }
 
-    .persona-img {
-        width: 80px;
-        height: 80px;
+    .epic {
+        background: #4c1130;
+        color: #a64d79;
     }
 
-    .nav-link {
-        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji" !important;
-        color: aqua !important;
+    .legendary {
+        background: #7f6000;
+        color: #f1c232;
     }
 
-    .bg-light {
-        background-color: #253f58 !important;
+    .common {
+        background: #666666;
+        color: #cccccc;
     }
 
-    .navbar-light .navbar-brand {
-        color: white;
+    .rare {
+        background: #274e13;
+        color: #6aa84f;
     }
 
-    .navbar-light .navbar-brand {
-        color: white;
-        border: 1px solid;
-        padding: 7px;
+    .empyrean {
+        background: #8e7cc3;
+        color: #d9d2e9;
     }
 
-    .navbar-light .navbar-brand:hover {
-        color: white;
-        border: 1px solid;
-        padding: 7px;
+    .true-divinity {
+        background: #8910af;
+        color: #e57aff;
     }
 
-    .navbar-light .navbar-toggler-icon {
-        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+    .void-tier {
+        background: #000000;
+        color: #434343;
     }
 
-    .custom-select {
-        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='white' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E")
+    .god {
+        background: #f3f3f3;
+        color: #b4a7d6;
+    }
+
+    .serieLogo {
+        max-width: 380px;
+        max-height: 100px;
+    }
+
+    .col-xs-1-10,
+    .col-sm-1-10 {
+        position: relative;
+        min-height: 1px;
+    }
+
+    .col-xs-1-10 {
+        width: 10%;
+        float: left;
+    }
+
+    @media (min-width: 768px) {
+        .col-sm-1-10 {
+            width: 10%;
+            float: left;
+        }
+    }
+
+    @media (min-width: 992px) {
+        .col-md-1-10 {
+            width: 10%;
+            float: left;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .col-lg-1-10 {
+            width: 10%;
+            float: left;
+        }
     }
 </style>
-<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light" style="font-size: 12pt !important">
-    <img src="<?php echo base_url() . 'dist/logo.png' ?>" alt="logo" width="150" style="margin-right: 16px;">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
-        <span class="navbar-toggler-icon"></span>
-    </button>
 
-    <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="<?php echo base_url() ?>">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url() . 'persona/create' ?>">Add Character</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url() . 'serie/create' ?>">Add Series</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Top</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Documentation</a>
-            </li>
-        </ul>
-        <ul class="navbar-nav">
-            <?php if (isset($username)) { ?>
-                <a class="nav-link" href="<?php echo base_url() . 'user' ?>" style="padding-right: 15px"><?php echo $username; ?></a>
-            <?php } else { ?>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?php echo base_url() . 'login' ?>">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?php echo base_url() . 'login/signup' ?>" style="padding-right: 15px;">Sign Up</a>
-                </li>
+<div class="container" style="margin-top: 58px;padding-left: 50px;">
+
+    <?php foreach ($series as $serie) { ?>
+        <div class="row">
+            <div class="col-12">
+                <div style="margin-top: 10px;margin-bottom: 10px;">
+                    <div class="row" style="text-align: center;line-height: 100px;">
+                        <div class="col-4">
+                            <a href="<?php echo base_url() . 'series/create/' . $serie->id ?>" style="color: black;"><b><?php echo $serie->name ?></b></a>
+                        </div>
+                        <div class="col-4">
+                            <img class="serieLogo" src="<?php echo getSerieImage($serie->id) ?>" alt="Serie Logo">
+                        </div>
+                        <div class="col-4">
+                            <a href="<?php echo base_url() . 'series/create/' . $serie->id ?>" style="color: black;"><b><?php echo $serie->name ?></b></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <?php
+                if (!isset($searchText) || $type == 'serie') {
+                    $this->load->model('personaModel');
+                    $personas = $this->personaModel->get_by_serie($serie->id);
+                }
+                foreach ($personas as $persona) {
+                    if ($persona->series_id == $serie->id) {
+                        $origin_series_name = $this->serieModel->get($persona->origin_series_id)->name;
+
+                        ?>
+                    <div class="col-sm-1-10" style="padding: 0 !important;">
+                        <div class="<?php echo PersonaModel::getRarity($persona->rarity) ?>" style="border: 1px solid;border-radius: 10px;text-align: center;width: 102px;margin-top: 10px;font-size: 10pt;">
+                            <a href="<?php echo base_url() . 'persona/wiki/' . str_replace("'", '-', str_replace(' ', '_', $persona->name)) . '/' . str_replace("'", '-', str_replace(' ', '_', $origin_series_name))  ?>">
+                                <div style="padding: 10px 10px 0;">
+                                    <img class="persona-img" src="<?php echo getPersonaImage($persona->id) ?>" alt="Card image cap" style="border: 1px solid white;">
+                                </div>
+
+                            </a>
+                            <div>
+                                <?php echo str_replace("-", "'", $persona->name); ?>
+                            </div>
+                            <div>
+                                <?php echo PersonaModel::$rarityType[$persona->rarity]; ?>
+                            </div>
+                        </div>
+                    </div>
+                <?php } ?>
             <?php } ?>
-        </ul>
-        <form action="<?php echo base_url() . 'persona/search' ?>" class="form-inline my-2 my-lg-0">
-            <select class="custom-select mr-1" name="type" style="background-color: #253f58;color: white;">
-                <option value="character">Character</option>
-                <option value="serie">Serie</option>
-            </select>
-            <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" name="searchText">
-            <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Pesquisar</button>
-        </form>
-    </div>
-</nav>
+        </div>
+    <?php } ?>
+</div>
