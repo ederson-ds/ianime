@@ -4,7 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Series extends CI_Controller {
 
-    public function create($id = null) {
+    public function create($id = 0) {
         $this->load->helper('url');
         $this->load->model('Series_model');
         $data['id'] = $id;
